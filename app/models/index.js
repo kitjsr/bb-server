@@ -26,7 +26,6 @@ db.donars = require("./donar.model.js")(sequelize, Sequelize);
 db.directorys = require("./directory.model.js")(sequelize, Sequelize);
 db.stocks = require("./stock.model.js")(sequelize, Sequelize);
 db.donations = require("./donation.model.js")(sequelize, Sequelize);
-// db.donationreports = require("./donationreport.model.js")(sequelize, Sequelize);
 db.users = require("./user.model.js")(sequelize, Sequelize);
 db.roles = require("./role.model.js")(sequelize, Sequelize);
 
@@ -40,9 +39,11 @@ db.users.belongsToMany(db.roles, {
   foreignKey: "userId",
   otherKey: "roleId"
 });
+db.donations.belongsTo(db.directorys, {as: 'directories'});
+db.donations.belongsTo(db.donars, {as: 'donars'});
 
-db.donars.belongsToMany(db.directorys, { through: 'donations', foreignKey: "directoryId"});
-db.directorys.belongsToMany(db.donars, { through: 'donations', foreignKey: "donarId"});
+// db.donars.belongsToMany(db.directorys, { through: 'donations', foreignKey: "directoryId"});
+// db.directorys.belongsToMany(db.donars, { through: 'donations', foreignKey: "donarId"});
 
 // db.directorys.belongsToMany(db.donations, { through: 'kdirectories', foreignKey: "bloodbankId"});
 // db.donations.belongsToMany(db.directorys, { through: 'mdirectories', foreignKey: "donationsId"});

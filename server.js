@@ -43,7 +43,6 @@ require("./app/routes/donar.routes")(app);
 require("./app/routes/directory.routes")(app);
 require("./app/routes/stock.routes")(app);
 require("./app/routes/donation.routes")(app);
-require("./app/routes/donationreport.routes")(app);
 require("./app/routes/auth.routes")(app);
 require("./app/routes/user.routes")(app);
 

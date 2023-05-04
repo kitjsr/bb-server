@@ -13,19 +13,19 @@ module.exports = app => {
     router.get("/donation/", donations.findAllDonations);
   
     // Retrieve all published Donations
-    router.get("/published",donations.findAllPublished);
+    // router.get("/published",donations.findAllPublished);
   
     // Retrieve a single Donation with id
     router.get("/:id", donations.findOne);
   
     // Update a Donation with id
-    router.put("/:id", donations.update);
+    // router.put("/:id", donations.update);
   
-    // Delete a Donation with id
-    router.delete("/:id", donations.delete);
+    // // Delete a Donation with id
+    // router.delete("/:id", donations.delete);
   
-    // Delete all Donations
-    router.delete("/", donations.deleteAll);
+    // // Delete all Donations
+    // router.delete("/", donations.deleteAll);
   
     app.use('/api/donations', router);
   };

@@ -5,12 +5,12 @@ module.exports = (sequelize, Sequelize) => {
       //   allowNull: false,
       //   primaryKey: true,
       // },
-      donarId: {
-        type: Sequelize.STRING
-      },
-      directoryId: {
-        type: Sequelize.STRING
-      }
+      // donarId: {
+      //   type: Sequelize.STRING
+      // },
+      // directoryId: {
+      //   type: Sequelize.STRING
+      // }
     });
     return Donation;
   };

@@ -16,7 +16,7 @@ let corsOptions = {
       }
   },credentials: true
 }
-
+// tesy
 app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json

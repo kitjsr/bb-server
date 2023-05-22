@@ -171,7 +171,38 @@ exports.findAllDonations = (req, res) => {
       });
     });
 };
-
+// Find All Donation with Donar Details
+exports.findAllDonationsCount = (req, res) => {
+  const group = req.params.group;
+  Donation.count({
+    include: [
+      {
+        model: Donar,
+        as: "donars",
+        where:{
+          // group:"O +ve"
+          group:group
+        }
+        
+      },
+      {
+        model: Directory,
+        as: "directories",
+      },
+    ],
+  })
+    .then((data) => {
+      // res.send(data);
+      res.send("Count " + data); 
+      // res.send({ no: `${nums}` });
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving Donations.",
+      });
+    });
+};
 // Find All Donation with Donar Details
 // exports.findAllDonations = (req, res) => {
 

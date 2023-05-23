@@ -14,6 +14,9 @@ module.exports = app => {
 
     // Retrieve all Donations with Donar details Counting - Blood Group Wise
     router.get("/donation/count/:group", donations.findAllDonationsCount);
+
+    // Retrieve all Donations with Donar detail - Single Donar
+    router.get("/donation/findAllDonationsSingleUser/:email", donations.findAllDonationsSingleUser);
   
     // Retrieve all published Donations
     // router.get("/published",donations.findAllPublished);

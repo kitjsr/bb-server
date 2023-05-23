@@ -203,25 +203,34 @@ exports.findAllDonationsCount = (req, res) => {
       });
     });
 };
-// Find All Donation with Donar Details
-// exports.findAllDonations = (req, res) => {
 
-//   Donation.findAll(
-//     {
-//       include: [
-//         {
-//           model: Donar,
-//         }
-//       ]
-//     }
-//   )
-//     .then((data) => {
-//       res.send(data);
-//     })
-//     .catch((err) => {
-//       res.status(500).send({
-//         message:
-//           err.message || "Some error occurred while retrieving Donations.",
-//       });
-//     });
-// };
+// Find All Donation with Donar Details - Single Donar
+exports.findAllDonationsSingleUser = (req, res) => {
+  const email = req.params.email;
+  Donation.findAll({
+    include: [
+      {
+        model: Donar,
+        as: "donars",
+        where:{
+          // group:"O +ve"
+          email:email
+        }
+        
+      },
+      {
+        model: Directory,
+        as: "directories",
+      },
+    ],
+  })
+  .then((data) => {
+    res.send(data);
+  })
+    .catch((err) => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving Donations.",
+      });
+    });
+};

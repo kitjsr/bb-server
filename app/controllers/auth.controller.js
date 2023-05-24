@@ -1,7 +1,8 @@
 const db = require("../models");
 const config = require("../config/auth.config");
 const User = db.users;
-const Role = db.role;
+const Role = db.roles;
+const UserRole = db.userRoles;
 
 const Op = db.Sequelize.Op;
 
@@ -101,3 +102,45 @@ exports.signout = (req,res) => {
   console.log("Logout Testing");
   console.log(req.headers);
 };
+
+
+// Find All User Details with User Type
+exports.findAllUsers = (req, res) => {
+  UserRole.findAll({
+   
+  })
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving Users.",
+      });
+    });
+};
+
+// Find All User Details with User Type
+// exports.findAllUsers = (req, res) => {
+//   UserRole.findAll({
+//     include: [
+//       {
+//         model: User,
+//         as: "users",
+//       },
+//       {
+//         model: Role,
+//         as: "roles",
+//       },
+//     ],
+//   })
+//     .then((data) => {
+//       res.send(data);
+//     })
+//     .catch((err) => {
+//       res.status(500).send({
+//         message:
+//           err.message || "Some error occurred while retrieving Users.",
+//       });
+//     });
+// };

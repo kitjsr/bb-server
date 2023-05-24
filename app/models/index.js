@@ -28,6 +28,7 @@ db.stocks = require("./stock.model.js")(sequelize, Sequelize);
 db.donations = require("./donation.model.js")(sequelize, Sequelize);
 db.users = require("./user.model.js")(sequelize, Sequelize);
 db.roles = require("./role.model.js")(sequelize, Sequelize);
+db.userRoles = require("./userRole.model.js")(sequelize, Sequelize);
 
 db.roles.belongsToMany(db.users, {
   through: "user_roles",

@@ -106,8 +106,13 @@ exports.signout = (req,res) => {
 
 // Find All User Details with User Type
 exports.findAllUsers = (req, res) => {
-  UserRole.findAll({
-   
+  User.findAll({
+    include: 
+      {
+        model: Role,
+        as: 'roles'
+      }
+    
   })
     .then((data) => {
       res.send(data);

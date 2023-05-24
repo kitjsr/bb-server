@@ -33,23 +33,16 @@ db.userRoles = require("./userRole.model.js")(sequelize, Sequelize);
 db.roles.belongsToMany(db.users, {
   through: "user_roles",
   foreignKey: "roleId",
-  otherKey: "userId"
+  otherKey: "userId",
+  as: 'users'
 });
 db.users.belongsToMany(db.roles, {
   through: "user_roles",
   foreignKey: "userId",
-  otherKey: "roleId"
+  otherKey: "roleId",
+  as: 'roles'
 });
 db.donations.belongsTo(db.directorys, {as: 'directories'});
 db.donations.belongsTo(db.donars, {as: 'donars'});
-
-// db.donars.belongsToMany(db.directorys, { through: 'donations', foreignKey: "directoryId"});
-// db.directorys.belongsToMany(db.donars, { through: 'donations', foreignKey: "donarId"});
-
-// db.directorys.belongsToMany(db.donations, { through: 'kdirectories', foreignKey: "bloodbankId"});
-// db.donations.belongsToMany(db.directorys, { through: 'mdirectories', foreignKey: "donationsId"});
-
-// db.directorys.hasMany(db.donations);
-// db.donations.belongsTo(db.directorys);
 
 module.exports = db;

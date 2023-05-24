@@ -128,5 +128,4 @@ node_modules
 package-lock.json
 *.json
 *.ps1
-node_modules/.bin/semver
-node_modules/.bin/semver.ps1
+node_modules/*

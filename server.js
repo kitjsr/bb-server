@@ -4,19 +4,19 @@ const cors = require("cors");
 
 const app = express();
 // Incoming PORT details
-var corsOptions = {
-  origin: "http://localhost:4200"
-};
-// let corsOptions = {
-//   origin: (origin, callback)=>{
-//       if (['http://localhost:4200'].indexOf(origin) !== -1) {
-//           callback(null, true)
-//       } else {
-//           callback(new Error('Not allowed by CORS'))
-//       }
-//   },credentials: true
-// }
-// tesy
+// var corsOptions = {
+//   origin: "http://localhost:4200"
+// };
+let corsOptions = {
+  origin: (origin, callback)=>{
+      if (['http://localhost:4200'].indexOf(origin) !== -1) {
+          callback(null, true)
+      } else {
+          callback(new Error('Not allowed by CORS'))
+      }
+  },credentials: true
+}
+
 app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json

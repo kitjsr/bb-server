@@ -22,6 +22,4 @@ module.exports = function(app) {
   app.post("/api/auth/signin", controller.signin);
   app.post("/api/auth/signout", controller.signout);
   app.get("/api/auth/allUser", controller.findAllUsers);
-  app.put("/api/auth/allUser", controller.update);
-  
 };

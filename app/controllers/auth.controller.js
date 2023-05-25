@@ -125,33 +125,6 @@ exports.findAllUsers = (req, res) => {
     });
 };
 
-// Update a Usertype by the id in the request
-exports.update = (req, res) => {
-  const id = req.params.id;
-
-  User.update(req.body, {
-    where: { id: id }
-  })
-    .then(num => {
-      if (num == 1) {
-        res.send({
-          message: "Usertype Details updated successfully."
-        });
-      } else {
-        res.send({
-          message: `Cannot update Usertype with id=${id}. `
-        });
-      }
-    })
-    .catch(err => {
-      res.status(500).send({
-        message: "Error updating Usertype with id=" + id
-      });
-    });
-};
-
-
-
 // Find All User Details with User Type
 // exports.findAllUsers = (req, res) => {
 //   UserRole.findAll({

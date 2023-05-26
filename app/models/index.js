@@ -19,8 +19,7 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.trainers = require("./trainer.model.js")(sequelize, Sequelize);
-db.members = require("./member.model.js")(sequelize, Sequelize);
+
 // bloodbank:
 db.donars = require("./donar.model.js")(sequelize, Sequelize);
 db.directorys = require("./directory.model.js")(sequelize, Sequelize);

@@ -35,10 +35,9 @@ db.sequelize.sync();
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to Our Node Server" });
 });
-// routes
-require("./app/routes/trainer.routes")(app);
-require("./app/routes/member.routes")(app);
-// blood bank:
+
+
+// routes blood bank:
 require("./app/routes/donar.routes")(app);
 require("./app/routes/directory.routes")(app);
 require("./app/routes/stock.routes")(app);

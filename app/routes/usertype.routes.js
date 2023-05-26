@@ -1,10 +1,10 @@
 module.exports = app => {
-    const donars = require("../controllers/usertype.controller.js");
+    const usertypes = require("../controllers/usertype.controller.js");
   
     var router = require("express").Router();
   
-    // Update a Donar with id
-    router.put("/:id", donars.update);
+    // Update a Usertype with id
+    router.put("/:id", usertypes.update);
   
   
     app.use('/api/usertype', router);

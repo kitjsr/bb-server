@@ -133,3 +133,4 @@ node_modules/*
 
 app/controllers/auth.controller.js
 
+app/controllers/auth.controller.js

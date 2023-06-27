@@ -130,4 +130,6 @@ package-lock.json
 *.ps1
 node_modules\*
 node_modules/*
+
 app/controllers/auth.controller.js
+

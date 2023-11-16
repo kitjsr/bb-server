@@ -22,6 +22,7 @@ db.sequelize = sequelize;
 
 // bloodbank:
 db.donars = require("./donar.model.js")(sequelize, Sequelize);
+db.aregisters = require("./aregister.model.js")(sequelize, Sequelize);
 db.directorys = require("./directory.model.js")(sequelize, Sequelize);
 db.stocks = require("./stock.model.js")(sequelize, Sequelize);
 db.donations = require("./donation.model.js")(sequelize, Sequelize);

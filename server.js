@@ -4,18 +4,18 @@ const cors = require("cors");
 
 const app = express();
 // Incoming PORT details
-// var corsOptions = {
-//   origin: "http://localhost:4200"
-// };
-let corsOptions = {
-  origin: (origin, callback)=>{
-      if (['http://localhost:4200'].indexOf(origin) !== -1) {
-          callback(null, true)
-      } else {
-          callback(new Error('Not allowed by CORS'))
-      }
-  },credentials: true
-}
+var corsOptions = {
+  origin: "http://localhost:4200"
+};
+// let corsOptions = {
+//   origin: (origin, callback)=>{
+//       if (['http://localhost:4200'].indexOf(origin) !== -1) {
+//           callback(null, true)
+//       } else {
+//           callback(new Error('Not allowed by CORS'))
+//       }
+//   },credentials: true
+// }
 
 app.use(cors(corsOptions));
 
@@ -39,6 +39,7 @@ app.get("/", (req, res) => {
 
 // routes blood bank:
 require("./app/routes/donar.routes")(app);
+require("./app/routes/aregister.routes")(app);
 require("./app/routes/directory.routes")(app);
 require("./app/routes/stock.routes")(app);
 require("./app/routes/donation.routes")(app);
